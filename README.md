@@ -3,4 +3,3 @@
 My code exercise solutions of "Seven Languages in Seven Weeks" by Bruce A. Tate
 
 !["Seven Languages in Seven Weeks" by Bruce A. Tate](http://imagery.pragprog.com/products/195/btlang.jpg)
-![GitHub Logo](/images/logo.png)
