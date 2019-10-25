@@ -48,10 +48,10 @@ test() ->
 	io:format("OK~n",[]),
 	test_worked.
 	
--spec words_count(Stirng :: string(), _Separator :: string()) -> Result :: 0 | pos_integer().
+-spec words_count(Stirng :: string(), Separator :: string()) -> Result :: 0 | pos_integer().
+
 words_count("" = String, Separator) when is_list(String) andalso is_list(Separator) andalso  length(String) =:= 0 ->
 	0;
-
 words_count(String,Separator) when is_list(String) andalso is_list(Separator) ->
 	
 	% split words by separator
