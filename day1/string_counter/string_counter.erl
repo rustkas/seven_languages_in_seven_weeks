@@ -1,7 +1,7 @@
 %% @author Anatolii Kosorukov <java1cprog@yandex.ru>
 %% @copyright 2019 by rustkas
 %% @version 1.0
-%% Implementating  BIF tuple_to_list(T) 
+
 -module(string_counter).
 -export([test/0]).
 -export([words_count/2]).
