@@ -6,11 +6,13 @@
 -export([test/0]).
 -export([total_price/1]).
 
--spec test() -> test_worked.
+-spec test_total_price_1([]) -> 'test_worked'.
 
 test_total_price_1(Items) when length(Items) =:= 0 ->
 	false = total_price(Items),
 	test_worked.
+
+-spec test_total_price_2([{atom(),integer(), float()}]) -> 'test_worked'.
 
 test_total_price_2(Items) when length(Items) > 0 ->
 	List = total_price(Items),
@@ -20,6 +22,8 @@ test_total_price_2(Items) when length(Items) > 0 ->
 	true = lists:all(fun(T)-> is_tuple(T) andalso size(T) =:=2 end, List),
 	
 	test_worked.
+
+-spec test_total_sum_1([]) -> 'test_worked'.
 	
 test_total_sum_1(Items) when length(Items) =:= 0 ->
 	Value = total_sum(Items),	
@@ -28,6 +32,8 @@ test_total_sum_1(Items) when length(Items) =:= 0 ->
 	
 	test_worked.
 
+-spec test_total_sum_2([{atom(),integer(), float()}]) -> 'test_worked'.
+
 test_total_sum_2(Items) when length(Items) > 0 ->
 	Value = total_sum(Items),	
 	%io:format("~p~n",[Value]),
@@ -35,6 +41,8 @@ test_total_sum_2(Items) when length(Items) > 0 ->
 	true = 101.0 =:= Value,
 	
 	test_worked.
+
+-spec test() -> test_worked.
 	
 test() -> 
 	% setup encoding
@@ -69,10 +77,15 @@ price_info() ->
 	
 	Info.
 
+-spec total_price([{atom(),integer(), float()}]) -> 'false' | [{atom(),float()}].
+
 total_price(Items) when is_list(Items) andalso length(Items) > 0 ->
 	Price_info = [{Product,Count * Price} || {Product,Count, Price} <- Items],
 	Price_info;
 total_price([]) -> false.	
+
+-spec total_sum([{atom(),integer(), float()}]) -> float().
+
 
 total_sum(Items) when is_list(Items) andalso length(Items) > 0 ->
 	%io:format("~p~n",[Items]),
