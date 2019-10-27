@@ -46,7 +46,7 @@ test_total_sum_2(Items) when length(Items) > 0 ->
 	
 test() -> 
 	% setup encoding
-	%io:setopts([{encoding, unicode}]),
+	io:setopts([{encoding, unicode}]),
 	
 	Items = price_info(),
 	
@@ -57,7 +57,8 @@ test() ->
 	test_total_sum_2(Items),
 	
 	%io:format("~p~n",[Items]),
-	%String = element(1, hd(Items)),
+	String = "Привет",
+	io:format("~ts~n",[String]),
 	
 	%Total_price = element(2, hd(Items)),
 	%true = is_float(Total_price),
@@ -105,3 +106,4 @@ total_sum([])  -> 0.0.
 
 % typer total_price.erl
 % dialyzer --no_check_plt --src total_price.erl
+%
