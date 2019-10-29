@@ -9,4 +9,6 @@ Useful commands:
 typer tic_tac_toe_game.erl
 dialyzer --no_check_plt --src -pa ..\tic_tac_toe tic_tac_toe_game.erl ..\tic_tac_toe\tic_tac_toe.erl
 
+# to run the game
+escript run
 ```
