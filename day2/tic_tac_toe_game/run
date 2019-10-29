@@ -1,0 +1,9 @@
+#!/usr/bin/env escript
+-import(tic_tac_toe_game, [start/0]).
+-import(tic_tac_toe, [statisctics/1]).
+
+main(Args) ->
+true = code:add_pathz(filename:dirname(escript:script_name()) 
+                       ++ "/../tic_tac_toe"),
+	tic_tac_toe_game:start().
+    

@@ -4,7 +4,7 @@
 
 -module(tic_tac_toe).
 -export([test/0]).
--export([result/1]).
+-export([statisctics/1,string_to_list/1,result/1]).
 
 -define(EMPTY, " ").
 -define(X, x).
@@ -126,6 +126,21 @@ test2() ->
 	
 	test_worked.
 
+test3() ->
+	String = 
+		"   " ++
+		"   " ++
+		"   ",
+	
+	List = string_to_list(String),		
+	%io:format("~p~n",[List]),
+	
+	Result = result(List),
+	%io:format("~p~n",[Result]),
+	true = ?NO_WINNER =:= Result,
+	
+	test_worked.
+
 -spec test() -> 'test_worked'.
 	
 test() ->
@@ -133,9 +148,17 @@ test() ->
 	test0(),
 	test1(),
 	test2(),
+	test3(),
 	
 	test_worked.
 
+%% Return statistics information
+-spec statisctics(InputString :: string()) -> Result :: ?X|?O|?NO_WINNER|?NO_WINNER|?CAT.
+
+statisctics(String) when is_list(String), length(String) =:=9 ->
+	List = string_to_list(String),		
+	Result = result(List),
+	Result.
 	
 %% function check input values.
 %% The valid values of an input item are "", x, o.
@@ -148,8 +171,9 @@ checkInput(X) ->
 										true -> false
 			end,
 	Result.
+
 	
--spec result(Board :: [string()]) -> Result :: atom().
+-spec result(Board :: [string()]) -> Result :: ?X|?O|?NO_WINNER|?NO_WINNER|?CAT.
 
 result(Board) when is_list(Board) andalso length(Board) =:= 9 ->
 	%io:format("~p~n",[Board]),
